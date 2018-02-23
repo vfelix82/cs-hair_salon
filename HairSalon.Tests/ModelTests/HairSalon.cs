@@ -15,16 +15,10 @@ namespace HairSalon.Tests
         // [TestMethod]
         // public void Hairsalon_Client_Save_Test()
         // {
-        //   //Arrange
-        //   Clients testClients = new Clients("Janet Jackson");
-        //   testClients.Save();
+        //   Stylist testStylist = new Stylist("Janet Jackson");
+        //   testStylist.Save();
         //
-        //   //Act
-        //   List<Stylist> result = Stylist.GetAll();
-        //   List<Stylist> testStylist = new List<Stylist>{testStylist};
-        //
-        //   //Assert
-        //   CollectionAssert.AreEqual(testStylist, result);
+        //   CollectionAssert.AreEqual(testStylist);
         // }
      }
 }

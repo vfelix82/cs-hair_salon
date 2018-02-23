@@ -83,7 +83,29 @@ namespace HairSalon.Models
             {
                 conn.Dispose();
             }
-        }
 
+        }
+        // public void StylistSave()
+        // {
+        //     MySqlConnection conn = DB.Connection();
+        //     conn.Open();
+        //
+        //     var cmd = conn.CreateCommand() as MySqlCommand;
+        //     cmd.CommandText = @"CREATE TABLE INTO victor_felix (clients VARCHAR (255))";
+        //
+        //     MySqlParameter clients = new MySqlParameter();
+        //     clients.ParameterName = "@clients";
+        //     clients.Value = this._clients;
+        //     cmd.Parameters.Add(clients);
+        //
+        //     // Code to declare, set, and add values to a categoryId SQL parameters has also been removed.
+        //
+        //     cmd.ExecuteNonQuery();
+        //     _id = (int) cmd.LastInsertedId;
+        //     conn.Close();
+        //     if (conn != null)
+        //     {
+        //         conn.Dispose();
+        //     }
     }
 }
