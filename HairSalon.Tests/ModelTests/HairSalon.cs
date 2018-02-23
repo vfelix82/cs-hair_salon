@@ -8,16 +8,16 @@ namespace HairSalon.Tests
     public class HairSalonTests
     {
         [TestMethod]
-        public void GetAll_ReturnsCity_CityList()
+        public void GetAll_DbStartsEmpty_0()
         {
           //Arrange
-          List<City> newCity = new List<City> {};
+          Stylist testStylist = new Stylist();
 
           //Act
-          List<City> result = City.GetAll();
+          string result = Stylist.GetAll().Count;
 
           //Assert
-          CollectionAssert.AreEqual(newCity, result);
+          Assert.AreEqual(0, result);
         }
      }
 }
