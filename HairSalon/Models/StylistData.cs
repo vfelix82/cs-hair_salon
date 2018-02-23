@@ -8,12 +8,12 @@ namespace HairSalon.Models
     public class Stylist
     {
         private int _id;
-        private string _client;
+        private string _clients;
 
-        public Stylist(string client, int Id = 0)
+        public Stylist(string clients, int Id = 0)
         {
             _id = Id;
-            _client = client;
+            _clients = clients;
         }
 
         // Getters
@@ -22,33 +22,36 @@ namespace HairSalon.Models
         {
             return _id;
         }
-        public string GetClient()
+        public string GetClients()
         {
-            return _client;
+            return _clients;
         }
         // Setters
         public void SetId(int setId)
         {
             _id = setId;
         }
-        public void SetClient(string setClient)
+        public void SetClients(string setClients)
         {
-            _client = setClient;
+            _clients = setClients;
         }
 
         public static List<Stylist> GetAll()
         {
            List<Stylist> allStylist = new List<Stylist> {};
+
            MySqlConnection conn = DB.Connection();
            conn.Open();
+
            MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
            cmd.CommandText = @"SELECT * FROM stylist;";
+
            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
            while(rdr.Read())
            {
              int stylistId = rdr.GetInt32(0);
-             string client = rdr.GetString(1);
-             Stylist newStylist = new Stylist(client, stylistId);
+             string clients = rdr.GetString(1);
+             Stylist newStylist = new Stylist(clients, stylistId);
              allStylist.Add(newStylist);
            }
            conn.Close();
@@ -57,6 +60,29 @@ namespace HairSalon.Models
                conn.Dispose();
            }
            return allStylist;
+        }
+        public void Save()
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"INSERT INTO stylist (clients) VALUES (@clients);";
+
+            MySqlParameter clients = new MySqlParameter();
+            clients.ParameterName = "@clients";
+            clients.Value = this._clients;
+            cmd.Parameters.Add(clients);
+
+            // Code to declare, set, and add values to a categoryId SQL parameters has also been removed.
+
+            cmd.ExecuteNonQuery();
+            _id = (int) cmd.LastInsertedId;
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
         }
 
     }
