@@ -1,17 +1,18 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "8f0d9c3397faf801fdcea25b08a4f33c6b076924"
+    "signature": "5257e6c2c1521fb5362023a082577d9932c95349"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.1": {
       "hairsalon.tests/1.0.0": {
         "dependencies": {
+          "HairSalon": "1.0.0",
           "MSTest.TestAdapter": "1.1.11",
           "MSTest.TestFramework": "1.1.11",
           "Microsoft.NET.Test.Sdk": "15.0.0",
-          "HairSalon": "1.0.0"
+          "Microsoft.TestPlatform.TestHost": "15.6.0"
         },
         "runtime": {
           "HairSalon.Tests.dll": {}
@@ -682,10 +683,10 @@
       },
       "microsoft.net.test.sdk/15.0.0": {
         "dependencies": {
-          "Microsoft.TestPlatform.TestHost": "15.0.0"
+          "Microsoft.TestPlatform.TestHost": "15.6.0"
         }
       },
-      "microsoft.testplatform.objectmodel/15.0.0": {
+      "microsoft.testplatform.objectmodel/15.6.0": {
         "dependencies": {
           "System.ComponentModel.EventBasedAsync": "4.0.11",
           "System.ComponentModel.TypeConverter": "4.3.0",
@@ -697,6 +698,7 @@
         },
         "runtime": {
           "lib/netstandard1.5/Microsoft.TestPlatform.CoreUtilities.dll": {},
+          "lib/netstandard1.5/Microsoft.TestPlatform.PlatformAbstractions.dll": {},
           "lib/netstandard1.5/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": {}
         },
         "resources": {
@@ -780,9 +782,10 @@
           }
         }
       },
-      "microsoft.testplatform.testhost/15.0.0": {
+      "microsoft.testplatform.testhost/15.6.0": {
         "dependencies": {
-          "Microsoft.TestPlatform.ObjectModel": "15.0.0",
+          "Microsoft.Extensions.DependencyModel": "1.1.2",
+          "Microsoft.TestPlatform.ObjectModel": "15.6.0",
           "Newtonsoft.Json": "9.0.1"
         },
         "runtime": {
@@ -1566,19 +1569,19 @@
       "path": "microsoft.net.test.sdk/15.0.0",
       "hashPath": "microsoft.net.test.sdk.15.0.0.nupkg.sha512"
     },
-    "microsoft.testplatform.objectmodel/15.0.0": {
+    "microsoft.testplatform.objectmodel/15.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cmnwtae/q/DKcWT6aF3fvexPhQ/rhr0twc+2VLEhzDBfE0khtBGrlDvnCfcWktGjShtTCB0OO204JdS3QtAByQ==",
-      "path": "microsoft.testplatform.objectmodel/15.0.0",
-      "hashPath": "microsoft.testplatform.objectmodel.15.0.0.nupkg.sha512"
+      "sha512": "sha512-p9Ln24HvUASoyS03rpGJqj1JXfMosQXJuT+rt4vxktFjegVK6AAcLQLyk9aUB/SetaiB9KB/V/6YRz8tlxqeGQ==",
+      "path": "microsoft.testplatform.objectmodel/15.6.0",
+      "hashPath": "microsoft.testplatform.objectmodel.15.6.0.nupkg.sha512"
     },
-    "microsoft.testplatform.testhost/15.0.0": {
+    "microsoft.testplatform.testhost/15.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OIQilyR5xljftuD2UcKoXANGrHESt/MN7DVfzEdpF7Lg7CtL6NMADidHjZU+iwHCdvpyqBJ+TE7aI01qYVWsaw==",
-      "path": "microsoft.testplatform.testhost/15.0.0",
-      "hashPath": "microsoft.testplatform.testhost.15.0.0.nupkg.sha512"
+      "sha512": "sha512-a72dAct/33fnunyHP2H29MUr/RkqyOXq5KjKLfXlwyAeGmSTo79H4LDanOJ+EZImF/JEYx/FL4SDph080X+4tQ==",
+      "path": "microsoft.testplatform.testhost/15.6.0",
+      "hashPath": "microsoft.testplatform.testhost.15.6.0.nupkg.sha512"
     },
     "mstest.testadapter/1.1.11": {
       "type": "package",

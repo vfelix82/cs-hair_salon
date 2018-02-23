@@ -7,19 +7,18 @@ namespace HairSalon.Models
 {
     public class Stylist
     {
-        public class Stylist
-        {
-            private int _id;
-            private string _client;
+        private int _id;
+        private string _client;
 
-        public Stylist(int Id = 0, _client)
+        public Stylist(string client, int Id = 0)
         {
             _id = Id;
             _client = client;
         }
+
         // Getters
-        }
-        public in GetId()
+
+        public int GetId()
         {
             return _id;
         }
@@ -37,7 +36,28 @@ namespace HairSalon.Models
             _client = setClient;
         }
 
-
+        public static List<Stylist> GetAll()
+        {
+           List<Stylist> allStylist = new List<Stylist> {};
+           MySqlConnection conn = DB.Connection();
+           conn.Open();
+           MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+           cmd.CommandText = @"SELECT * FROM stylist;";
+           MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+           while(rdr.Read())
+           {
+             int stylistId = rdr.GetInt32(0);
+             string client = rdr.GetString(1);
+             Stylist newStylist = new Stylist(client, stylistId);
+             allStylist.Add(newStylist);
+           }
+           conn.Close();
+           if (conn != null)
+           {
+               conn.Dispose();
+           }
+           return allStylist;
+        }
 
     }
 }
