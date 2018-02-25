@@ -18,14 +18,16 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>Employee List</h1>
+            <h1>Clients List</h1>
         </div>
-    <form id="" action = "/SaveStylist" method = "post">
+        <form id="" action = "/SaveClient" method = "post">
         <div class="form-group">
-            <label for="name">Add Stylist Employee:</label>
+            <label for="name">Name of Stylist:</label>
             <input name="stylistname" type="text" class="form-control" id="">
+            <label for="name">Name of Client:</label>
+            <input name="clientname" type="text" class="form-control" id="">
             <br>
-        <button type="submit" class="btn">Add Stylist</button>
+        <button type="submit" class="btn">Add Client</button>
     </form>
     </div>
 </div>
@@ -33,32 +35,32 @@
     <div class="container">
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i>Employee List (Stylist):</div>
+                <i class="fa fa-table"></i>List of Clients:</div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th></th>
+                                <th>Stylist Name</th>
+                                <th>Clients Name</th>
+
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th></th>
+                                <th>Stylist Name</th>
+                                <th>Clients Name</th>
+
                             </tr>
                         </tfoot>
                         <tbody>
                                 @if (Model!=null)
                                 {
-                                    foreach(var Stylist in Model)
+                                    foreach(var Client in Model)
                                     {
                                 <tr>
-                                    <td>@Stylist.GetName()</td>
-                                    <td>
-                                    <button type="button" class="btn"><a href="/Clients">Clients</a></button>
-                                    </td>
+                                    <td>@Client.GetStylist()</td>
+                                    <td>@Client.GetName()</td>
                                 </tr>
                                     }
                                 }
@@ -66,7 +68,8 @@
                     </table>
                 </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <button type="button" class="btn"><a href="/">Back to Employee List</a></button>
+
         </div>
     </div>
     </div>

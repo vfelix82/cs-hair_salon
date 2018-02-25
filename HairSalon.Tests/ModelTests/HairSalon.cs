@@ -12,13 +12,6 @@ namespace HairSalon.Tests
         {
             Stylist.GetAll();
         }
-        // [TestMethod]
-        // public void Hairsalon_Client_Save_Test()
-        // {
-        //   Stylist testStylist = new Stylist("Janet Jackson");
-        //   testStylist.Save();
-        //
-        //   CollectionAssert.AreEqual(testStylist);
-        // }
+
      }
 }
