@@ -15,10 +15,15 @@ Hair Salon website which you can view your stylist and add clients for each of t
 * use terminal to open the program using .net commands
 
 > CREATE DATABASE first_last;
+
 > USE first_last;
+
 > CREATE TABLE stylists (
+
         CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR(255));
+        
 > CREATE TABLE clients (
+
         CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR(255), stylist_id INT);
 
 ## Known Bugs
