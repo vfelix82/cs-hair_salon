@@ -12,3 +12,4 @@ C:\Users\vfeli\Downloads\HairSalon.Solution\HairSalon.Tests\bin\Debug\netcoreapp
 C:\Users\vfeli\Downloads\HairSalon.Solution\HairSalon.Tests\bin\Debug\netcoreapp1.1\HairSalon.pdb
 C:\Users\vfeli\Downloads\HairSalon.Solution\HairSalon.Tests\obj\Debug\netcoreapp1.1\HairSalon.Tests.dll
 C:\Users\vfeli\Downloads\HairSalon.Solution\HairSalon.Tests\obj\Debug\netcoreapp1.1\HairSalon.Tests.pdb
+C:\Users\vfeli\Downloads\HairSalon.Solution\HairSalon.Tests\obj\Debug\netcoreapp1.1\HairSalon.Tests.AssemblyInfoInputs.cache

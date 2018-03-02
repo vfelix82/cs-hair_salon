@@ -1,64 +1,43 @@
-@{
-     Layout = "_Layout";
- }
-
-<head>
-    <title>HairSalon</title>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand">HairSalon</a>
-            </div>
-            <ul class="nav navbar-nav">
-            </ul>
-        </div>
-    </nav>
-</head>
+@{ Layout = "_Layout"; }
 
 <body>
     <div class="container">
         <div class="jumbotron">
             <h1>Employee List</h1>
         </div>
-    <form id="" action = "/SaveStylist" method = "post">
-        <div class="form-group">
-            <label for="name">Add Stylist Employee:</label>
-            <input name="stylistname" type="text" class="form-control" id="">
-            <br>
-        <button type="submit" class="btn">Add Stylist</button>
-    </form>
+        <form action="/StylistAdd" method="post">
+            <div class="form-group">
+                <label for="name">Add Stylist Employee:</label>
+                <input name="stylistname" type="text" class="form-control" required>
+                <br>
+                <button type="submit" class="btn">Add Stylist</button>
+        </form>
+        </div>
     </div>
-</div>
     <br>
     <div class="container">
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i>Employee List (Stylist):</div>
+                <i class="fa fa-table"></i>Employee List:</div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th></th>
+
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Name</th>
-                                <th></th>
+
                             </tr>
                         </tfoot>
                         <tbody>
-                                @if (Model!=null)
-                                {
-                                    foreach(var Stylist in Model)
-                                    {
-                                <tr>
-                                    <td>@Stylist.GetName()</td>
-                                    <td>
-                                    <button type="button" class="btn"><a href="/Clients">Clients</a></button>
-                                    </td>
+                            @if (Model!=null) { foreach(var Stylist in Model) {
+                            <tr>
+                                <td><a href="/StylistDetails/@Stylist.GetId()">@Stylist.GetName()</td>
                                 </tr>
                                     }
                                 }

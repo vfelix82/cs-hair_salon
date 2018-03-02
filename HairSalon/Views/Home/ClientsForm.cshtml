@@ -1,0 +1,19 @@
+
+@{
+     Layout = "_Layout";
+ }
+ 
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Clients List</h1>
+        </div>
+        <form action="/ClientAdd" method="post">
+            <label for="client-name">Name of Client: </label>
+            <input type="text" name="clientsname" class="form-control" required>
+            <input type="hidden" name="stylistId" value="@Model.GetId()">
+            <br>
+            <button type="submit" class="btn">Add Client</button>
+        </form>
+    </div>
+</body>

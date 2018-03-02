@@ -1,0 +1,41 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+        <div class="jumbotron">
+            <h2>@Model.GetName() Clients:</h2>
+        </div>
+            <button type="button" class="btn"><a href="/Client/@Model.GetId()">Add New Client:</a></button>
+            <br>
+            <br>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Client</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @if (Model!=null)
+                        {
+                            foreach(var client in Model.GetClients())
+                            {
+                        <tr>
+                            <td>@client.GetName()</td>
+                        </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button type="button" class="btn"><a href="/">Back to Stylists</a></button>
+    </div>
+</div>
