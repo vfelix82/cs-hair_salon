@@ -9,6 +9,12 @@ namespace HairSalon.Controllers
     {
 
         // Clients //
+        [HttpGet("/ClientList")]
+        public ActionResult ClientList()
+        {
+            return View(Client.GetAll());
+        }
+
         [HttpGet("/Client/{stylistId}")]
         public ActionResult ClientsForm(int stylistId)
         {
@@ -24,6 +30,21 @@ namespace HairSalon.Controllers
             Client newClient = new Client(clientsName, stylistId);
             newClient.Save();
             return RedirectToAction("StylistDetails", new {id=stylistId});
+        }
+
+        [HttpPost("/ClientList/delete-all")]
+        public ActionResult DeleteAllClient()
+        {
+            Client.DeleteAll();
+            return View("ClientList");
+        }
+
+        [HttpPost("/ClientList/{id}/delete")]
+        public ActionResult DeleteClient(int id)
+        {
+            Client myClient = Client.Find(id);
+            myClient.Delete();
+            return RedirectToAction("ClientList", "Home");
         }
 
         // Stylist //
@@ -50,14 +71,14 @@ namespace HairSalon.Controllers
         }
 
         [HttpPost("/delete-all")]
-        public ActionResult Delete()
+        public ActionResult DeleteAllStylist()
         {
             Stylist.DeleteAll();
             return View("Index");
         }
 
         [HttpPost("/Stylist/{id}/delete")]
-        public ActionResult Delete(int id)
+        public ActionResult DeleteStylist(int id)
         {
             Stylist myStylist = Stylist.Find(id);
             myStylist.Delete();

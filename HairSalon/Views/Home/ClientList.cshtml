@@ -1,26 +1,19 @@
-@{ Layout = "_Layout"; }
+@{
+     Layout = "_Layout";
+ }
 
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>Employee List</h1>
+            <h1>Full Client List</h1>
         </div>
-        <form action="/StylistAdd" method="post">
-            <div class="form-group">
-                <label for="name">Add Stylist Employee:</label>
-                <input name="stylistname" type="text" class="form-control" required>
-                <br>
-                <button type="submit" class="btn">Add Stylist</button>
-        </form>
         </div>
     </div>
     <br>
-
     <div class="container">
-            <a href="/ClientList">Go to Client List</a>
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i>Employee List:</div>
+                <i class="fa fa-table"></i>Clients</div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -37,9 +30,9 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @if (Model!=null) { foreach(var Stylist in Model) {
+                            @if (Model!=null) { foreach(var Client in Model) {
                             <tr>
-                                <td><a href="/StylistDetails/@Stylist.GetId()">@Stylist.GetName()<form action="/Stylist/@Stylist.GetId()/delete" method="post"><button id="delete-stylist" class="btn" type="submit">Delete Stylist</button></form></td>
+                                <td><a href="/ClientDetails/@Client.GetId()">@Client.GetName()<form action="/ClientList/@Client.GetId()/delete" method="post"><button id="delete-client" class="btn" type="submit">Delete Client</button></form></td>
                             </tr>
                                 }
                             }
@@ -48,9 +41,8 @@
                 </div>
             </div>
             <form action="/delete-all" method="post">
-              <button class="btn btn-danger" type="submit">Delete all Stylists</button>
+              <button class="btn btn-danger" type="submit">Delete all Clients</button>
             </form>
-
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
     </div>
