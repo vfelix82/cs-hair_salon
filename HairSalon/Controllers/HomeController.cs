@@ -56,12 +56,12 @@ namespace HairSalon.Controllers
             return View("Index");
         }
 
-        [HttpPost("/stylist/{id}/delete")]
+        [HttpPost("/Stylist/{id}/delete")]
         public ActionResult Delete(int id)
         {
             Stylist myStylist = Stylist.Find(id);
             myStylist.Delete();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
     }
 }

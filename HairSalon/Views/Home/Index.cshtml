@@ -37,10 +37,10 @@
                         <tbody>
                             @if (Model!=null) { foreach(var Stylist in Model) {
                             <tr>
-                                <td><a href="/StylistDetails/@Stylist.GetId()">@Stylist.GetName()</td>
-                                </tr>
-                                    }
+                                <td><a href="/StylistDetails/@Stylist.GetId()">@Stylist.GetName()<form action="/Stylist/@Stylist.GetId()/delete" method="post"><button id="delete-stylist" class="btn" type="submit">Delete Stylist</button></form></td>
+                            </tr>
                                 }
+                            }
                         </tbody>
                     </table>
                 </div>
