@@ -39,12 +39,12 @@ namespace HairSalon.Controllers
             return View("ClientList");
         }
 
-        [HttpPost("/ClientList/{id}/delete")]
+        [HttpPost("/Client/{id}/delete")]
         public ActionResult DeleteClient(int id)
         {
             Client myClient = Client.Find(id);
             myClient.Delete();
-            return RedirectToAction("ClientList", "Home");
+            return RedirectToAction("ClientList");
         }
 
         // Stylist //

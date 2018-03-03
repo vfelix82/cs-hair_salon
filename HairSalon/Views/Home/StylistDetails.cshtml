@@ -9,6 +9,7 @@
             <button type="button" class="btn"><a href="/Client/@Model.GetId()">Add New Client:</a></button>
             <br>
             <br>
+            <a href="/">Back to Employee List</a>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -25,10 +26,10 @@
                     <tbody>
                         @if (Model!=null)
                         {
-                            foreach(var client in Model.GetClients())
+                            foreach(var Client in Model.GetClients())
                             {
                         <tr>
-                            <td>@client.GetName()</td>
+                            <td>@Client.GetName()</td>
                         </tr>
                             }
                         }

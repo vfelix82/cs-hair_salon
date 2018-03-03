@@ -11,6 +11,7 @@
     </div>
     <br>
     <div class="container">
+        <a href="/">Back to Employee List</a>
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fa fa-table"></i>Clients</div>
@@ -32,7 +33,7 @@
                         <tbody>
                             @if (Model!=null) { foreach(var Client in Model) {
                             <tr>
-                                <td><a href="/ClientDetails/@Client.GetId()">@Client.GetName()<form action="/ClientList/@Client.GetId()/delete" method="post"><button id="delete-client" class="btn" type="submit">Delete Client</button></form></td>
+                                <td><a href="">@Client.GetName()<form action="/Client/@Client.GetId()/delete" method="post"><button id="delete-client" class="btn" type="submit">Delete Client</button></form></td>
                             </tr>
                                 }
                             }
@@ -40,7 +41,7 @@
                     </table>
                 </div>
             </div>
-            <form action="/delete-all" method="post">
+            <form action="/ClientList/delete-all" method="post">
               <button class="btn btn-danger" type="submit">Delete all Clients</button>
             </form>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
