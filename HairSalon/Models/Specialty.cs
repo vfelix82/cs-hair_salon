@@ -143,22 +143,22 @@ namespace HairSalon.Models
 
             List<Stylist> stylists = new List<Stylist> { };
             foreach (int stylistId in stylistIds) {
-                var stylistQuery = conn.CreateCommand () as MySqlCommand;
-                stylistQuery.CommandText = @"SELECT * FROM stylists WHERE id = @StylistId;";
+            var stylistQuery = conn.CreateCommand () as MySqlCommand;
+            stylistQuery.CommandText = @"SELECT * FROM stylists WHERE id = @StylistId;";
 
-                MySqlParameter stylistIdParameter = new MySqlParameter ();
-                stylistIdParameter.ParameterName = "@StylistId";
-                stylistIdParameter.Value = stylistId;
-                stylistQuery.Parameters.Add (stylistIdParameter);
+            MySqlParameter stylistIdParameter = new MySqlParameter ();
+            stylistIdParameter.ParameterName = "@StylistId";
+            stylistIdParameter.Value = stylistId;
+            stylistQuery.Parameters.Add (stylistIdParameter);
 
-                var stylistQueryRdr = stylistQuery.ExecuteReader () as MySqlDataReader;
-                while (stylistQueryRdr.Read ()) {
-                    int thisStylistId = stylistQueryRdr.GetInt32 (0);
-                    string stylistName = stylistQueryRdr.GetString (1);
+            var stylistQueryRdr = stylistQuery.ExecuteReader () as MySqlDataReader;
+            while (stylistQueryRdr.Read ()) {
+            int thisStylistId = stylistQueryRdr.GetInt32 (0);
+            string stylistName = stylistQueryRdr.GetString (1);
 
-                    Stylist foundStylist = new Stylist (stylistName, thisStylistId);
-                    stylists.Add (foundStylist);
-                }
+            Stylist foundStylist = new Stylist (stylistName, thisStylistId);
+            stylists.Add (foundStylist);
+            }
                 stylistQueryRdr.Dispose ();
             }
             conn.Close ();
@@ -168,7 +168,8 @@ namespace HairSalon.Models
             return stylists;
         }
 
-        public void AddStylist (Stylist newStylist) {
+        public void AddStylist (Stylist newStylist)
+        {
             MySqlConnection conn = DB.Connection ();
             conn.Open ();
             var cmd = conn.CreateCommand () as MySqlCommand;
@@ -186,26 +187,9 @@ namespace HairSalon.Models
 
             cmd.ExecuteNonQuery ();
             conn.Close ();
-            if (conn != null) {
+            if (conn != null)
+            {
                 conn.Dispose ();
-            }
-        }
-
-        public void Delete ()
-        {
-            MySqlConnection conn = DB.Connection ();
-            conn.Open ();
-            var cmd = conn.CreateCommand () as MySqlCommand;
-            cmd.CommandText = @"DELETE FROM specialties WHERE id = @specialtyId; DELETE FROM stylists_specialties WHERE specialty_id = @specialtyId;";
-
-            MySqlParameter specialtyIdParameter = new MySqlParameter ();
-            specialtyIdParameter.ParameterName = "@specialtyId";
-            specialtyIdParameter.Value = this.GetId ();
-            cmd.Parameters.Add (specialtyIdParameter);
-
-            cmd.ExecuteNonQuery ();
-            if (conn != null) {
-                conn.Close ();
             }
         }
 
@@ -222,5 +206,6 @@ namespace HairSalon.Models
                 conn.Dispose ();
             }
         }
+
     }
 }

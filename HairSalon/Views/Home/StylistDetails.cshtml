@@ -32,7 +32,7 @@
                 </table>
             </div>
         </div>
-        <button type="button" class="btn"><a href="/Client/@Model.GetId()">Add Specialties:</a></button>
+        <button type="button" class="btn"><a href="/Specialty/@Model.GetId()">Add Specialties:</a></button>
         <br>
         <br>
         <div class="card-body">
@@ -46,10 +46,10 @@
                     <tbody>
                         @if (Model!=null)
                         {
-                            foreach(var Client in Model.GetClients())
+                            foreach(var Stylist in @Model.GetSpecialties())
                             {
                         <tr>
-                            <td>@Client.GetName()</td>
+                            <td>@Stylist.GetSpecialtyName()</td>
                         </tr>
                             }
                         }
