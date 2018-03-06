@@ -18,11 +18,31 @@
                             <th>Client</th>
                         </tr>
                     </thead>
-                    <tfoot>
+                    <tbody>
+                        @if (Model!=null)
+                        {
+                            foreach(var Client in Model.GetClients())
+                            {
                         <tr>
-                            <th>Client</th>
+                            <td>@Client.GetName()</td>
                         </tr>
-                    </tfoot>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button type="button" class="btn"><a href="/Client/@Model.GetId()">Add Specialties:</a></button>
+        <br>
+        <br>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Specialties</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         @if (Model!=null)
                         {

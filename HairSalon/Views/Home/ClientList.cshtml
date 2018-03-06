@@ -33,7 +33,7 @@
                         <tbody>
                             @if (Model!=null) { foreach(var Client in Model) {
                             <tr>
-                                <td><a href="">@Client.GetName()<form action="/Client/@Client.GetId()/delete" method="post"><button id="delete-client" class="btn" type="submit">Delete Client</button></form></td>
+                                <td><a href="">@Client.GetName()</td>
                             </tr>
                                 }
                             }
