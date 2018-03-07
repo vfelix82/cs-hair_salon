@@ -84,6 +84,23 @@ namespace HairSalon.Controllers
             myStylist.Delete();
             return RedirectToAction("Index");
         }
+        [HttpPost("/stylist/{stylistId}")]
+        public ActionResult Update(int stylistId)
+        {
+            string name = Request.Form["editstylistname"];
+            string specialties = Request.Form["stylistspecialties"];
+            if(specialties != null)
+            {
+                String[] specialtyIds = specialties.Split(',');
+                foreach(var specialtyId in specialtyIds)
+                {
+                    Stylist.Find(stylistId).AddSpecialty(Specialty.Find(Int32.Parse(specialtyId)));
+                }
+            }
+            Stylist myStylist = Stylist.Find(stylistId);
+            myStylist.Edit(name);
+            return RedirectToAction("StylistDetails", new {id = stylistId});
+        }
 
         // Specialties //
 
@@ -93,7 +110,7 @@ namespace HairSalon.Controllers
             return View ("SpecialtyList", Specialty.GetAll());
         }
 
-        [HttpGet ("/Specialty/{stylistId}")]
+        [HttpGet ("/Specialty")]
         public ActionResult SpecialtyForm(int stylistId)
         {
             Stylist myStylist = Stylist.Find (stylistId);
@@ -104,19 +121,16 @@ namespace HairSalon.Controllers
         public ActionResult SpecialtyAdd()
         {
             string name = Request.Form["specialtyname"];
-            int stylistId = Int32.Parse (Request.Form["stylistId"]);
-            Specialty mySpecialty = new Specialty (name);
-            mySpecialty.Save ();
-            var stylist = Stylist.Find (stylistId);
-            stylist.AddSpecialty (mySpecialty);
-            return RedirectToAction ("StylistDetails", new { id = stylistId });
+            Specialty newSpecialty = new Specialty(name);
+            newSpecialty.Save ();
+            return RedirectToAction ("SpecialtyList");
         }
 
         [HttpGet ("/SpecialtyList/delete-all")]
         public ActionResult DeleteAllSpecialties()
         {
             Specialty.DeleteAll();
-            return RedirectToAction("SpecialtyList");
+            return View("SpecialtyList");
 
         }
     }

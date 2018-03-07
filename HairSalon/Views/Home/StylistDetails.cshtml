@@ -1,62 +1,71 @@
+@using HairSalon.Models;
+
 @{
-    Layout = "_Layout";
-}
+     Layout = "_Layout";
+ }
 
 <div class="container">
-        <div class="jumbotron">
-            <h2>@Model.GetName() Clients:</h2>
-        </div>
-            <button type="button" class="btn"><a href="/Client/@Model.GetId()">Add New Client:</a></button>
-            <br>
-            <br>
-            <a href="/">Back to Employee List</a>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Client</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (Model!=null)
-                        {
-                            foreach(var Client in Model.GetClients())
-                            {
-                        <tr>
-                            <td>@Client.GetName()</td>
-                        </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <button type="button" class="btn"><a href="/Specialty/@Model.GetId()">Add Specialties:</a></button>
-        <br>
-        <br>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Specialties</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (Model!=null)
-                        {
-                            foreach(var Stylist in @Model.GetSpecialties())
-                            {
-                        <tr>
-                            <td>@Stylist.GetSpecialtyName()</td>
-                        </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <button type="button" class="btn"><a href="/">Back to Stylists</a></button>
+    <div class="jumbotron">
+        <h2>@Model.GetName() Clients:</h2>
     </div>
+    <a href="/">Back to Employee List</a>
+    <form action="/stylist/@Model.GetId()" method="post">
+        <div class="form-group">
+            <label>Edit Stylist Name:</label>
+            <input class="form-control" type="text" name="editstylistname" value="@Model.GetName()">
+        </div>
+        <div class="form-group">
+            <label for="stylistspecialties">Add Specialties</label>
+            @foreach(var specialty in @Specialty.GetAll())
+            {
+                <input type="checkbox" name="stylistspecialties" value="@specialty.GetId()">@specialty.GetSpecialtyName()
+            }
+            
+        </div>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+    <br>
+    <br>
+    <button type="button" class="btn"><a href="/Client/@Model.GetId()">Add New Client:</a></button>
+    <br>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model!=null) { foreach(var Client in Model.GetClients()) {
+                    <tr>
+                        <td>@Client.GetName()</td>
+                    </tr>
+                    } }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Specialties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model!=null) { foreach(var Stylist in @Model.GetSpecialties()) {
+                    <tr>
+                        <td>@Stylist.GetSpecialtyName()</td>
+                    </tr>
+                    } }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <button type="button" class="btn"><a href="/">Back to Stylists</a></button>
 </div>

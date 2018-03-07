@@ -7,7 +7,9 @@
         <div class="jumbotron">
             <h1>Full Specialty List</h1>
         </div>
-        </div>
+        <br>
+        <button type="button" class="btn"><a href="/Specialty">Add Specialties:</a></button>
+    </div>
     </div>
     <br>
     <div class="container">
@@ -33,18 +35,13 @@
                         <tbody>
                             @if (Model!=null) { foreach(var Specialty in Model) {
                             <tr>
-                                <td><a href="">@Specialty.GetSpecialtyName()</td>
+                                <td>@Specialty.GetSpecialtyName()</td>
                             </tr>
-                                }
-                            }
+                            } }
                         </tbody>
                     </table>
                 </div>
             </div>
-            <form action="/SpecialtyList/delete-all" method="post">
-              <button class="btn btn-danger" type="submit">Delete all Specialties</button>
-            </form>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
-    </div>
     </div>

@@ -1,4 +1,6 @@
-@{ Layout = "_Layout"; }
+@{
+     Layout = "_Layout";
+ }
 
 <body>
     <div class="container">
@@ -17,30 +19,29 @@
     <br>
 
     <div class="container">
-            <a style="float: left;" href="/ClientList">Go to Full Client List</a>
-            <a style="float: right;" href="/SpecialtyList">Go to Full Specialty List</a>
+        <a style="float: left;" href="/ClientList">Go to Full Client List</a>
+        <a style="float: right;" href="/SpecialtyList">Go to Full Specialty List</a>
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
 
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
 
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            @if (Model!=null) { foreach(var Stylist in Model) {
-                            <tr>
-                                <td><a href="/StylistDetails/@Stylist.GetId()">@Stylist.GetName()
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @if (Model!=null) { foreach(var Stylist in Model) {
+                                <tr>
+                                    <td><a href="/StylistDetails/@Stylist.GetId()">@Stylist.GetName()
                                 <form action="/Stylist/@Stylist.GetId()/delete" method="post">
                                 <button style="float: right;" class="btn" type="submit">Delete Stylist</button>
                                 </form>
