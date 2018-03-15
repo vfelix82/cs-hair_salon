@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>Full Client List</h1>
+            <h1>@Model.GetName()</h1>
         </div>
     </div>
     </div>
@@ -15,7 +15,7 @@
         <a href="/">Back to Employee List</a>
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i>Clients</div>
+                <i class="fa fa-table"></i>Stylist</div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -32,19 +32,17 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @if (Model!=null) { foreach(var client in Client.GetAll()) {
                             <tr>
-                                <td><a href="/client/@client.GetId()">@client.GetName()</a></td>
+                              <tr>
+                                  <td>@Stylist.Find(@Model.GetStylistId()).GetName()</td>
+                              </tr>
                             </tr>
-                                }
-                            }
                         </tbody>
                     </table>
                 </div>
             </div>
-            <form action="/ClientList/delete-all" method="post">
-              <button class="btn btn-danger" type="submit">Delete all Clients</button>
-            </form>
+              @* <button class="btn btn-danger" type="submit">Delete all Clients</button>
+            </form> *@
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
     </div>

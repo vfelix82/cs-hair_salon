@@ -8,7 +8,6 @@ namespace HairSalon.Controllers
     public class HomeController : Controller
     {
 
-        // Clients //
         [HttpGet("/ClientList")]
         public ActionResult ClientList()
         {
