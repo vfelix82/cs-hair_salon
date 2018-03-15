@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 15, 2018 at 05:08 PM
+-- Generation Time: Mar 15, 2018 at 05:06 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.1.5
 
@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `victor_felix`
+-- Database: `victor_felix_test`
 --
-CREATE DATABASE IF NOT EXISTS `victor_felix` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `victor_felix`;
+CREATE DATABASE IF NOT EXISTS `victor_felix_test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `victor_felix_test`;
 
 -- --------------------------------------------------------
 
@@ -57,18 +57,6 @@ CREATE TABLE `stylists` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `stylists`
---
-
-INSERT INTO `stylists` (`id`, `name`) VALUES
-(1, 'Victor'),
-(2, 'Victor'),
-(3, 'Victor'),
-(4, 'Victor'),
-(5, 'Victor'),
-(6, 'Victor');
 
 -- --------------------------------------------------------
 
@@ -118,17 +106,17 @@ ALTER TABLE `stylists_specialties`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `specialties`
 --
 ALTER TABLE `specialties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `stylists`
 --
 ALTER TABLE `stylists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `stylists_specialties`
 --

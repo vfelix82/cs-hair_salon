@@ -7,25 +7,29 @@ using HairSalon.Models;
 namespace HairSalon.Tests
 {
     [TestClass]
-    public class StylistTest
+    public class StylistTests : IDisposable
     {
 
-        [TestMethod]
-        public void GetName_ReturnsStylistName_String()
+        public StylistTests()
         {
-            string testName = "Victor";
-            Stylist testStylist = new Stylist(testName);
-
-            string result = testStylist.GetName();
-
-            Assert.AreEqual(testName, result);
+            DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=victor_felix_test;";
         }
-        
+
+        public void Dispose()
+        {
+            Stylist.DeleteAll();
+            Client.DeleteAll();
+            Specialty.DeleteAll();
+        }
+
+        // Stylist Test //
+
+
         [TestMethod]
-        public void Save_StylistSavesToDatabase_Stylist()
+        public void Save_StylistSavesToDatabase()
         {
 
-            Stylist testStylist = new Stylist("Victor");
+            Stylist testStylist = new Stylist("Heidi");
             testStylist.Save();
 
             List<Stylist> result = Stylist.GetAll();
@@ -35,14 +39,43 @@ namespace HairSalon.Tests
          }
 
          [TestMethod]
-         public void Find_FindsStylistInDatabase_Stylist()
+         public void Find_FindsStylistInDatabase()
          {
-             Stylist testStylist = new Stylist("Victor");
+             Stylist testStylist = new Stylist("Minna");
              testStylist.Save();
 
              Stylist foundStylist = Stylist.Find(testStylist.GetId());
 
              Assert.AreEqual(testStylist, foundStylist);
+         }
+
+         // Client Test //
+
+         [TestMethod]
+         public void Save_ClientToDatabase()
+         {
+             Client testClient = new Client("Fox", 1);
+             testClient.Save();
+
+             List<Client> testList = new List<Client>{testClient};
+             List<Client> result = Client.GetAll();
+
+             CollectionAssert.AreEqual(testList, result);
+         }
+
+         // Specialy Test //
+
+
+         [TestMethod]
+         public void Save_SpecialtyToDatabase()
+         {
+             Specialty testSpecialty = new Specialty("Jeremy");
+             testSpecialty.Save();
+
+             List<Specialty> result = Specialty.GetAll();
+             List<Specialty> testList = new List<Specialty>{testSpecialty};
+
+             CollectionAssert.AreEqual(testList, result);
          }
 
      }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using HairSalon.Controllers;
 using HairSalon.Models;
+using MySql.Data.MySqlClient;
 
 namespace HairSalon.Tests
 {
@@ -12,7 +13,7 @@ namespace HairSalon.Tests
     {
 
         [TestMethod]
-        public void Index_ReturnsCorrectView_True()
+        public void Index_ReturnsView_True()
         {
             HomeController controller = new HomeController();
             IActionResult actionResult = controller.Index();
